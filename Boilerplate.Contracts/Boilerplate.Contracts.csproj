@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTOs\NonEntities\**" />
+    <EmbeddedResource Remove="DTOs\NonEntities\**" />
+    <None Remove="DTOs\NonEntities\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTOs\CustomerEventDTO.cs" />
+    <Compile Remove="DTOs\CustomerEventServiceDTO.cs" />
+    <Compile Remove="Filters\RegionDTO.cs" />
+    <Compile Remove="Helpers\Filter.cs" />
+    <Compile Remove="Helpers\FormDataJsonBinder.cs" />
+    <Compile Remove="Helpers\Result.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.4.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.7" />
+    <PackageReference Include="MimeKit" Version="3.4.0" />
+    <PackageReference Include="NetTopologySuite" Version="2.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Boilerplate.Shared\Boilerplate.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTOs\Getter\Languages\" />
+  </ItemGroup>
+
+</Project>
