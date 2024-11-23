@@ -1,7 +1,9 @@
-﻿using Boilerplate.Core.Entities;
+﻿using Autofac.Features.OwnedInstances;
+using Boilerplate.Core.Entities;
 using Boilerplate.Core.Entities.Auth;
 using Boilerplate.Core.Entities.Auth.Roles;
 using Boilerplate.Core.Entities.Migrations;
+using Boilerplate.Core.Entities.Patient;
 using Boilerplate.Infrastructure.Configuration;
 using Boilerplate.Infrastructure.Helpers;
 using Microsoft.AspNetCore.Builder;
@@ -80,7 +82,10 @@ namespace Boilerplate.Infrastructure.DBContexts
         //public virtual DbSet<LogError> LogErrors { get; set; }
         #endregion
 
+        #region Patient
+        public virtual DbSet<Patient> Patients { get; set; }
 
+        #endregion
 
         #region Permissions
         public virtual DbSet<PermissionModule> PermissionModules { get; set; }
