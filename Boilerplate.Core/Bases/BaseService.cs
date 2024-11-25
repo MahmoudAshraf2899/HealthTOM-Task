@@ -136,44 +136,8 @@ namespace Boilerplate.Core.Bases
             ErrorMessage(lIndicators, _culture.SharedLocalizer["This item is already found"].Value);
         }
         #endregion
-        protected async Task<IHolderOfDTO> GetUserIdAsync(UserManager<User> userManager, string refreshToken)
-        {
-            IHolderOfDTO internalHolder = new HolderOfDTO();
-            // Check if Refresh Token is Empty
-            if (string.IsNullOrEmpty(refreshToken))
-            {
-                internalHolder.Add(Res.state, false);
-                internalHolder.Add(Res.message, "Refresh Token is required!");
-                return internalHolder;
-            }
-            // Get User by any Refresh Token Even if it is Inactive 
-            var user = await userManager.Users.SingleOrDefaultAsync(u => u.RefreshTokens.Any(t => t.RefreshToken == refreshToken));
 
-            if (user == null)
-            {
-                internalHolder.Add(Res.state, false);
-                internalHolder.Add(Res.message, "Invalid token");
-                return internalHolder;
-            }
-            if (user.IsBanned)
-            {
-                internalHolder.Add(Res.state, false);
-                internalHolder.Add(Res.message, "User is Inactive!");
-                return internalHolder;
-
-            }
-            var currentUserRefreshToken = user.RefreshTokens.Single(t => t.RefreshToken == refreshToken);
-            if (!currentUserRefreshToken.IsActive)
-            {
-                internalHolder.Add(Res.state, false);
-                internalHolder.Add(Res.message, "Inactive token");
-                return internalHolder;
-            }
-
-            internalHolder.Add(Res.state, true);
-            internalHolder.Add(Res.uid, user.Id);
-            return internalHolder;
-        }
+        
        
     }
 }

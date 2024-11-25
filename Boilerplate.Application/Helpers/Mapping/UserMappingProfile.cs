@@ -17,22 +17,20 @@ namespace Boilerplate.Application.Helpers
 
             CreateMap<UserSetterDTO, User>().ReverseMap();
 
-            CreateMap<User, UserGetterDTO>()
-                .ForMember(d => d.DisplayPath, o => o.MapFrom(s => buildProfileImagePath(s.Path))).ReverseMap();
+            CreateMap<User, UserGetterDTO>().ReverseMap();
 
             CreateMap<User, UserDataGetterDTO>()
                 .ForMember(d => d.Username, o => o.MapFrom(s => s.UserName));
 
             CreateMap<User, UserAuthGetterDTO>()
-              .ForMember(d => d.FullName, o => o.MapFrom(s => s.FirstName + " " + s.LastName))
-              .ForMember(d => d.DisplayPath, o => o.MapFrom(s => buildProfileImagePath(s.Path)));
+              .ForMember(d => d.FullName, o => o.MapFrom(s => s.FirstName + " " + s.LastName));
+
 
             CreateMap<User, AdminAuthGetterDTO>()
-              .ForMember(d => d.FullName, o => o.MapFrom(s => s.FirstName + " " + s.LastName))
-              .ForMember(d => d.DisplayPath, o => o.MapFrom(s => buildProfileImagePath(s.Path)));
+              .ForMember(d => d.FullName, o => o.MapFrom(s => s.FirstName + " " + s.LastName));
 
             CreateMap<User, UserAdminDataGetterDTO>()
-                .ForMember(d => d.Roles, o => o.MapFrom(s => s.UserRoles.Select(q => q.Role)))                 
+                .ForMember(d => d.Roles, o => o.MapFrom(s => s.UserRoles.Select(q => q.Role)))
                 .ForMember(d => d.Username, o => o.MapFrom(s => s.UserName));
 
             CreateMap<User, UserInfoGetterDTO>().ReverseMap();
@@ -43,7 +41,7 @@ namespace Boilerplate.Application.Helpers
 
             CreateMap<ProfilePictureSetterDTO, ProfilePicture>().ReverseMap();
 
-            
+
 
             CreateMap<User, LookupStringGetterDTO>()
                .ForMember(d => d.Name, o => o.MapFrom(s => s.FullName))
