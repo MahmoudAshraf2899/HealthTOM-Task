@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
-namespace Boilerplate.Application.Services.Patient
+namespace Boilerplate.Application.Services.Patients
 {
     public class PatientService : BaseService<PatientService>, IPatientService
     {

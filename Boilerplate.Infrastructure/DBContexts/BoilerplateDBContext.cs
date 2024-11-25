@@ -4,6 +4,7 @@ using Boilerplate.Core.Entities.Auth;
 using Boilerplate.Core.Entities.Auth.Roles;
 using Boilerplate.Core.Entities.Migrations;
 using Boilerplate.Core.Entities.Patient;
+using Boilerplate.Core.Entities.Visit;
 using Boilerplate.Infrastructure.Configuration;
 using Boilerplate.Infrastructure.Helpers;
 using Microsoft.AspNetCore.Builder;
@@ -86,7 +87,10 @@ namespace Boilerplate.Infrastructure.DBContexts
         public virtual DbSet<Patient> Patients { get; set; }
 
         #endregion
+        #region Visits
+        public virtual DbSet<Visit> Visits { get; set; }
 
+        #endregion
         #region Permissions
         public virtual DbSet<PermissionModule> PermissionModules { get; set; }
         public virtual DbSet<RolePermission> RolePermissions { get; set; }

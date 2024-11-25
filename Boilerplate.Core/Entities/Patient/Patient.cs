@@ -13,6 +13,8 @@ namespace Boilerplate.Core.Entities.Patient
     [Table("patient")]
     public class Patient : BaseEntityUpdate
     {
+         
+
         [Column("name")]
         [Required(ErrorMessage = "Name is required"), MaxLength(50)]
         public string Name { get; set; }

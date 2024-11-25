@@ -261,6 +261,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 #endregion
 
 #region API .Net Core IOC Container
+builder.Services.AddTransient<HolderOfDTO>();
 
 #endregion
 

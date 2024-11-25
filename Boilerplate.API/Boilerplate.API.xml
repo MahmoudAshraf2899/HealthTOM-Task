@@ -18,6 +18,13 @@
             <returns> Get Role lookups in admin panal</returns>
             <remarks> Get Role lookups in admin panal</remarks>
         </member>
+        <member name="M:Boilerplate.API.Controllers.Admin.Visit.VisitController.SaveAsync(Boilerplate.Contracts.Features.Visit.Commands.VisitAddCommand)">
+            <summary>
+            This End Point To Create New Visit By Radiologists 
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
         <member name="M:Boilerplate.API.Controllers.Auth.AuthController.RegisterUserAsync(Boilerplate.Contracts.DTOs.Auth.Setter.UserRegisterSetterDTO)">
             <summary>
             User register in site 

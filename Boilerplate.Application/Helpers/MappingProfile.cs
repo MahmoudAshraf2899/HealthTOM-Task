@@ -20,7 +20,11 @@ namespace Boilerplate.Application.Helpers
 
             RoleMappingProfile();
 
-            PermissionMappingProfile();           
+            PermissionMappingProfile();
+
+            VisitMappingProfile();
+
+            PatientMappingProfile();
         }
 
         public int getRoleUserCount(string roleId)

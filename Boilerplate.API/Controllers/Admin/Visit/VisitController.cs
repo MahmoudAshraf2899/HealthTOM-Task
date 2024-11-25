@@ -1,4 +1,5 @@
 ﻿using Boilerplate.API.Bases;
+using Boilerplate.Contracts.Features.Visit.Commands;
 using Boilerplate.Contracts.Helpers;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -17,6 +18,20 @@ namespace Boilerplate.API.Controllers.Admin.Visit
         public VisitController(HolderOfDTO holderOfDTO, IMediator mediator) : base(holderOfDTO)
         {
             _mediator = mediator;
+        }
+        /// <summary>
+        /// This End Point To Create New Visit By Radiologists 
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> SaveAsync([FromBody] VisitAddCommand command)
+        {
+            if (!ModelState.IsValid)
+                return NotValidModelState();
+
+
+            return State(await _mediator.Send(command));
         }
     }
 }

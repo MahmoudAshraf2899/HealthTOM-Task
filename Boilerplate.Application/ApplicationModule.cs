@@ -6,13 +6,13 @@ using Boilerplate.Application.Services.LicenceService;
 using Boilerplate.Application.Services.Lookups;
 using Boilerplate.Application.Services.Migrations;
 using Boilerplate.Application.Services.PasswordGeneration;
-using Boilerplate.Application.Services.Patient;
+using Boilerplate.Application.Services.Patients;
 using Boilerplate.Application.Services.ThumbnailService;
-using Boilerplate.Application.Services.Visit;
+using Boilerplate.Application.Services.Visits;
 using Boilerplate.Contracts.Interfaces.Services.Patient;
 using Boilerplate.Contracts.Interfaces.Services.Visit;
 using Boilerplate.Contracts.IServices.Services;
-using Boilerplate.Contracts.IServices.Services.Auth; 
+using Boilerplate.Contracts.IServices.Services.Auth;
 using Boilerplate.Contracts.IServices.Services.EncryptionAndDecryption;
 using Boilerplate.Contracts.IServices.Services.Lookups;
 using Boilerplate.Contracts.IServices.Services.Migrations;
@@ -51,7 +51,7 @@ namespace Boilerplate.Application
                 .InstancePerLifetimeScope();
 
             #endregion
-            
+
             #region Permissions and Licence
 
             builder.RegisterType<PermissionService>().As<IPermissionService>()
@@ -62,13 +62,13 @@ namespace Boilerplate.Application
                 .InstancePerLifetimeScope();
 
             #endregion
-            
+
             #region PasswordGeneration
 
             builder.RegisterType<PasswordGenerationService>().As<IPasswordGenerationService>().SingleInstance();
 
             #endregion
-          
+
             #region Lookups
 
             builder.RegisterType<LookupService>().As<ILookupService>()
@@ -87,7 +87,7 @@ namespace Boilerplate.Application
             builder.RegisterType<EncryptionAndDecryptionService>().As<IEncryptionAndDecryptionService>()
                 .InstancePerLifetimeScope();
             #endregion
-            
+
             #region ThumbnailService
 
             builder.RegisterType<ImageThumbnailService>().As<IThumbnailService<ImageThumbnailData>>()
