@@ -1,4 +1,5 @@
 ﻿using Boilerplate.Contracts.Enums;
+using Boilerplate.Core.Entities.Visit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,7 +16,7 @@ namespace Boilerplate.Core.Entities.Patient
         [Column("name")]
         [Required(ErrorMessage = "Name is required"), MaxLength(50)]
         public string Name { get; set; }
-        
+
         [Column("gender")]
         [Required(ErrorMessage = "Gender is required")]
         public Gender Gender { get; set; }
@@ -27,5 +28,8 @@ namespace Boilerplate.Core.Entities.Patient
         [Column("email")]
         [Required(ErrorMessage = "Email is required"), MaxLength(100)]
         public string Email { get; set; }
+
+        public virtual ICollection<Visit.Visit> Visits { get; set; }
+
     }
 }

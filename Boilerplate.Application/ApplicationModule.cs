@@ -6,7 +6,11 @@ using Boilerplate.Application.Services.LicenceService;
 using Boilerplate.Application.Services.Lookups;
 using Boilerplate.Application.Services.Migrations;
 using Boilerplate.Application.Services.PasswordGeneration;
+using Boilerplate.Application.Services.Patient;
 using Boilerplate.Application.Services.ThumbnailService;
+using Boilerplate.Application.Services.Visit;
+using Boilerplate.Contracts.Interfaces.Services.Patient;
+using Boilerplate.Contracts.Interfaces.Services.Visit;
 using Boilerplate.Contracts.IServices.Services;
 using Boilerplate.Contracts.IServices.Services.Auth; 
 using Boilerplate.Contracts.IServices.Services.EncryptionAndDecryption;
@@ -24,6 +28,16 @@ namespace Boilerplate.Application
         // IOC Container Method
         protected override void Load(ContainerBuilder builder)
         {
+
+            #region Patient
+            builder.RegisterType<PatientService>().As<IPatientService>()
+                   .InstancePerLifetimeScope();
+            #endregion
+
+            #region Visit
+            builder.RegisterType<VisitService>().As<IVisitService>()
+                   .InstancePerLifetimeScope();
+            #endregion
 
             #region Auth, Role, User
 
@@ -48,14 +62,12 @@ namespace Boilerplate.Application
                 .InstancePerLifetimeScope();
 
             #endregion
-
             
             #region PasswordGeneration
 
             builder.RegisterType<PasswordGenerationService>().As<IPasswordGenerationService>().SingleInstance();
 
             #endregion
-
           
             #region Lookups
 

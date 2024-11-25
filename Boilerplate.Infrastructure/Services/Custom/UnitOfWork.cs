@@ -2,14 +2,20 @@ using Boilerplate.Contracts.Helpers;
 using Boilerplate.Contracts.IServices.Repositories.Auth;
 using Boilerplate.Contracts.IServices.Repositories.Auth.Roles;  
 using Boilerplate.Contracts.IServices.Repositories.Migrations;
+using Boilerplate.Core.Entities.Patient;
+using Boilerplate.Core.Entities.Visit;
 using Boilerplate.Core.IServices.Custom;
 using Boilerplate.Core.IServices.Custom.Repositories;
+using Boilerplate.Core.IServices.Repositories.Patients;
+using Boilerplate.Core.IServices.Repositories.Visits;
 using Boilerplate.Infrastructure.DBContexts;
 using Boilerplate.Infrastructure.Repositories.Custom.Log_System;
 using Boilerplate.Infrastructure.Services.Repositories;
 using Boilerplate.Infrastructure.Services.Repositories.Auth;
 using Boilerplate.Infrastructure.Services.Repositories.Auth.Roles;
 using Boilerplate.Infrastructure.Services.Repositories.Migrations;
+using Boilerplate.Infrastructure.Services.Repositories.Patients;
+using Boilerplate.Infrastructure.Services.Repositories.Visits;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
@@ -38,11 +44,28 @@ namespace Boilerplate.Infrastructure.Services.Custom
 
         #region Migrations
         public IMigrationRepository Migrations { get; }
-        #endregion        
+        #endregion
+
+        #region Patient
+        public IPatientRepository Patient { get; private set; }
+
+        #endregion
+
+        #region Visit
+        public IVisitRepository Visit { get; private set; }
+        #endregion
 
         public UnitOfWork(BoilerplateDBContext context)
         {
             _context = context;
+            
+            #region Patient
+            Patient = new PatientRepository(_context);
+            #endregion
+
+            #region Visit
+            Visit = new VisitRepository(_context);
+            #endregion
 
             #region Role
             Roles = new RoleRepository(_context);
