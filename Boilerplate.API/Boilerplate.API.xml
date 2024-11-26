@@ -25,6 +25,13 @@
             <param name="command"></param>
             <returns></returns>
         </member>
+        <member name="M:Boilerplate.API.Controllers.Admin.Visit.VisitController.GetAllAsync(Boilerplate.Contracts.Features.Visit.Queries.GetAllVisitsQuery)">
+            <summary>
+            Get All Visits included pagination and filteration with patient name 
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
         <member name="M:Boilerplate.API.Controllers.Auth.AuthController.RegisterUserAsync(Boilerplate.Contracts.DTOs.Auth.Setter.UserRegisterSetterDTO)">
             <summary>
             User register in site 

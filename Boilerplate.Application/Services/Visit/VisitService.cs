@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
+using Boilerplate.Application.Extentions;
 using Boilerplate.Contracts.Features.Visit.Commands;
+using Boilerplate.Contracts.Features.Visit.Queries;
+using Boilerplate.Contracts.Helpers;
 using Boilerplate.Contracts.Interfaces.Custom;
 using Boilerplate.Contracts.Interfaces.Services.Visit;
 using Boilerplate.Core.Bases;
@@ -9,6 +12,7 @@ using Boilerplate.Core.IServices.Custom;
 using Boilerplate.Shared.Consts;
 using Boilerplate.Shared.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -28,7 +32,33 @@ namespace Boilerplate.Application.Services.Visits
         {
             _hostingEnvironment = hostingEnvironment;
         }
+        public async Task<IHolderOfDTO> GetAllAsync(GetAllVisitsQuery request)
+        {
+            List<bool> lIndicators = new List<bool>();
+            try
+            {
 
+
+                var query = _unitOfWork.Visit.GetAll(request);
+                int totalCount = await query.CountAsync();
+                var page = new Pager();
+                page.Set(request.PageSize, request.CurrentPage, totalCount);
+                _holderOfDTO.Add(Res.page, page);
+                query = query.AddPage(page.Skip, page.PageSize);
+                _holderOfDTO.Add(Res.Response, query.ToList());
+                _logger.LogInformation(Res.message, Res.DataFetch);
+                lIndicators.Add(true);
+
+
+            }
+            catch (Exception ex)
+            {
+                ExceptionError(lIndicators, ex.Message);
+
+            }
+            _holderOfDTO.Add(Res.state, lIndicators.All(x => x));
+            return _holderOfDTO;
+        }
         public async Task<IHolderOfDTO> SaveAsync(VisitAddCommand command)
         {
             List<bool> lIndicators = new List<bool>();

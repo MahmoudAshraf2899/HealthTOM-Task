@@ -44,7 +44,6 @@
     <Folder Include="DTOs\Getter\Languages\" />
     <Folder Include="Features\Patient\Commands\" />
     <Folder Include="Features\Patient\Queries\" />
-    <Folder Include="Features\Visit\Queries\" />
   </ItemGroup>
 
 </Project>

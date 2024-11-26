@@ -1,5 +1,6 @@
 ﻿using Boilerplate.API.Bases;
 using Boilerplate.Contracts.Features.Visit.Commands;
+using Boilerplate.Contracts.Features.Visit.Queries;
 using Boilerplate.Contracts.Helpers;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -26,6 +27,20 @@ namespace Boilerplate.API.Controllers.Admin.Visit
         /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> SaveAsync([FromBody] VisitAddCommand command)
+        {
+            if (!ModelState.IsValid)
+                return NotValidModelState();
+
+
+            return State(await _mediator.Send(command));
+        }
+        /// <summary>
+        /// Get All Visits included pagination and filteration with patient name 
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync([FromQuery] GetAllVisitsQuery command)
         {
             if (!ModelState.IsValid)
                 return NotValidModelState();
