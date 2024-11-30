@@ -7,13 +7,10 @@ namespace Boilerplate.Contracts.IServices.Services.Auth
 {
     public interface IAuthService
     {
-        Task<IHolderOfDTO> RegisterUserAsync(UserRegisterSetterDTO userRegisterSetterDTO);
        
         Task<IHolderOfDTO> LoginAsync(UserLoginSetterDTO setterDTO);
-        Task<IHolderOfDTO> LoginAdminAsync(UserLoginSetterDTO setterDTO);
         
-        Task<IHolderOfDTO> AddUserToRoleAsync(RoleUserSetterDTO userRoleSetterDTO);
-        Task<IHolderOfDTO> GetRoleUsersAsync(string roleName);
+        
       
     }
 }

@@ -18,27 +18,13 @@ namespace Boilerplate.API.Controllers.Auth
         {
             _authService = authService;
         }
+         
 
         /// <summary>
-        /// User register in site 
-        /// </summary>
-        /// <returns> User register</returns>
-        /// <remarks> User register in site</remarks>
-        [AllowAnonymous]
-        [HttpPost("RegisterUser")]
-        public async Task<IActionResult> RegisterUserAsync([FromBody] UserRegisterSetterDTO userRegisterSetterDTO)
-        {
-            if (!ModelState.IsValid)
-                return NotValidModelState();
-
-            return State(await _authService.RegisterUserAsync(userRegisterSetterDTO));
-        } 
-
-        /// <summary>
-        /// User can login in site or admin panal
+        /// User can login in admin panal
         /// </summary>
         /// <returns> User login</returns>
-        /// <remarks> User login in site or admin panal</remarks>
+        /// <remarks> User login in admin panal</remarks>
         [AllowAnonymous]
         [HttpPost("Login")]
         public async Task<IActionResult> LoginAsync([FromBody] UserLoginSetterDTO userLoginSetterDTO)
@@ -47,25 +33,7 @@ namespace Boilerplate.API.Controllers.Auth
                 return NotValidModelState();
 
             _holderOfDTO = await _authService.LoginAsync(userLoginSetterDTO);
-            //CheckStateAndSetRefreshToken(HttpContext, _holderOfDTO);
-
-            return State(_holderOfDTO);
-        }
-
-        /// <summary>
-        /// User can login in admin panal
-        /// </summary>
-        /// <returns> User login</returns>
-        /// <remarks> User login in admin panal</remarks>
-        [AllowAnonymous]
-        [HttpPost("LoginAdmin")]
-        public async Task<IActionResult> LoginAdminAsync([FromBody] UserLoginSetterDTO userLoginSetterDTO)
-        {
-            if (!ModelState.IsValid)
-                return NotValidModelState();
-
-            _holderOfDTO = await _authService.LoginAdminAsync(userLoginSetterDTO);
-            // CheckStateAndSetRefreshToken(HttpContext, _holderOfDTO);
+          
 
             return State(_holderOfDTO);
         }

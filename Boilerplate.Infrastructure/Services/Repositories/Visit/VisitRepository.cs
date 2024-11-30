@@ -35,7 +35,7 @@ namespace Boilerplate.Infrastructure.Services.Repositories.Visits
                                      Email = c.Patient.Email,
                                      ExamStatus = c.ExamStatus.ToString(),
                                      ExamType = c.ExamType.ToString(),
-                                     Gender = nameof(c.Patient.Gender),
+                                     Gender = c.Patient.Gender.ToString(),
                                      PatientId = c.PatientId,
                                      PatientName = c.Patient.Name,
                                      CreatedAt = c.CreatedAt

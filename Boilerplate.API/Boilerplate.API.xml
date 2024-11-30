@@ -32,114 +32,12 @@
             <param name="command"></param>
             <returns></returns>
         </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.AuthController.RegisterUserAsync(Boilerplate.Contracts.DTOs.Auth.Setter.UserRegisterSetterDTO)">
-            <summary>
-            User register in site 
-            </summary>
-            <returns> User register</returns>
-            <remarks> User register in site</remarks>
-        </member>
         <member name="M:Boilerplate.API.Controllers.Auth.AuthController.LoginAsync(Boilerplate.Contracts.DTOs.Auth.Setter.UserLoginSetterDTO)">
-            <summary>
-            User can login in site or admin panal
-            </summary>
-            <returns> User login</returns>
-            <remarks> User login in site or admin panal</remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.AuthController.LoginAdminAsync(Boilerplate.Contracts.DTOs.Auth.Setter.UserLoginSetterDTO)">
             <summary>
             User can login in admin panal
             </summary>
             <returns> User login</returns>
             <remarks> User login in admin panal</remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.RolesController.UpdateRoleWithPermissionAsync(Boilerplate.Contracts.DTOs.Auth.Setter.RoleWithPermissionSetterDTO)">
-            <summary>
-            Add or update role with permission in admin panal
-            </summary>
-            <remarks> 
-            Add or update role with permission by user that has update permisssions
-            </remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.RolesController.AddRolesToUser(Boilerplate.Contracts.DTOs.Auth.Setter.Roles.RoleUser.RoleUsersRequest)">
-            <summary>
-            Add roles to user in admin panal
-            </summary>
-            <remarks> 
-            Add roles to user by user that has update permisssions
-            </remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.RolesController.GetAllAsync">
-            <summary>
-            Get all  roles in admin panal 
-            </summary>
-            <returns> All  roles</returns>
-            <remarks> Get all  roles without filter For user that has get permission</remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.RolesController.GetAllAsync(Boilerplate.Contracts.Filters.Auth.RoleFilter)">
-            <summary>
-            Get filtered roles in admin panal 
-            </summary>
-            <returns> filter roles</returns>
-            <remarks> Get filtered roles For user that has get permission</remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.RolesController.RoleWithPermissions">
-            <summary>
-            Get all role with permissions in admin panal 
-            </summary>
-            <returns> All role with permissions</returns>
-            <remarks> Get all roles with permissions For user that has get permission</remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.RolesController.GetAsync(System.String)">
-            <summary>
-            Get role in admin panal by Id
-            </summary>
-            <returns> Specific  role </returns>
-            <remarks> Get Specific  role by id For user that has get permission</remarks>
-            <param name="id" example="c1be5862-d402-4a31-8fs9-6aded859f7a8">The  role id</param>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.RolesController.PostAsync(Boilerplate.Contracts.DTOs.Auth.Setter.Roles.Role.RoleSetterDTO)">
-            <summary>
-            Add new role in admin panal
-            </summary>
-            <remarks> 
-            Add role by user that has Add permisssions
-            </remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.RolesController.UpdateAsync(Boilerplate.Contracts.DTOs.Auth.Setter.Roles.Role.RoleUpdateSetterDTO)">
-            <summary>
-            Update  role in admin panal
-            </summary>
-            <remarks> 
-            Update role by user that has update permisssions
-            </remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.RolesController.Delete(System.String)">
-            <summary>
-            Delete  role in admin panal
-            </summary>
-            <remarks> 
-            Delete  role by user that has Delete permisssions
-            </remarks>
-            <param name="id" example="c1be5862-d402-4a31-8fs9-6aded859f7a8">The role id</param>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.RolesController.AddUserRoleAsync(Boilerplate.Contracts.DTOs.Auth.Setter.Roles.RoleUser.RoleUserSetterDTO)">
-             <summary>
-             Add role to user  role in admin panal
-             </summary>
-             <remarks> 
-            Add role to user by user that has Add permisssions
-             </remarks>
-             <param name="id" example="c1be5862-d402-4a31-8fs9-6aded859f7a8">The role id</param>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.RolesController.GetRoleUsersAsync(System.String)">
-            <summary>
-            Get role with users in admin panal
-            </summary>
-            <remarks> 
-            Delete Get role with users by user that has get permisssions
-            </remarks>
-            <param name="roleName" example="Admin">The role id</param>
         </member>
         <member name="M:Boilerplate.API.Controllers.Auth.UserController.SearchAsync(Boilerplate.Contracts.Filters.Auth.UserFilter)">
             <summary>
