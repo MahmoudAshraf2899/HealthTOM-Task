@@ -4,20 +4,6 @@
         <name>Boilerplate.API</name>
     </assembly>
     <members>
-        <member name="M:Boilerplate.API.Controllers.Admin.Lookups.LookupController.GetUserAsync">
-            <summary>
-            Get User lookups in admin panal 
-            </summary>
-            <returns> Get User lookups in admin panal</returns>
-            <remarks> Get User lookups in admin panal</remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Admin.Lookups.LookupController.GetRoleAsync">
-            <summary>
-            Get Role lookups in admin panal 
-            </summary>
-            <returns> Get Role lookups in admin panal</returns>
-            <remarks> Get Role lookups in admin panal</remarks>
-        </member>
         <member name="M:Boilerplate.API.Controllers.Admin.Visit.VisitController.SaveAsync(Boilerplate.Contracts.Features.Visit.Commands.VisitAddCommand)">
             <summary>
             This End Point To Create New Visit By Radiologists 
@@ -38,21 +24,6 @@
             </summary>
             <returns> User login</returns>
             <remarks> User login in admin panal</remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.UserController.SearchAsync(Boilerplate.Contracts.Filters.Auth.UserFilter)">
-            <summary>
-            Search users in admin panal 
-            </summary>
-            <returns> Search  users</returns>
-            <remarks> filter users by user that has get permission</remarks>
-        </member>
-        <member name="M:Boilerplate.API.Controllers.Auth.UserController.GetByIdAsync(System.String)">
-            <summary>
-            Get  user in admin panal by Id
-            </summary>
-            <returns> Specific  user </returns>
-            <remarks> Get Specific user by id for user that has get permission</remarks>
-            <param name="id" example="c1be5862-d402-4a31-8fs9-6aded859f7a8">The  user id</param>
         </member>
     </members>
 </doc>
